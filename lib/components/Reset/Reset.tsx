@@ -1,30 +1,21 @@
-import React, { ReactType, AllHTMLAttributes } from 'react';
-import classnames from 'classnames';
-import { ResetTags } from '../../themes/theme';
-import { useTheme } from '../private/ThemeContext';
+import { createElement, ReactType, AllHTMLAttributes } from 'react';
+import { useClassNames } from 'treat';
+import { baseReset, specificResets } from './Reset.treat';
 
 export interface ResetProps extends AllHTMLAttributes<HTMLElement> {
   component?: ReactType;
 }
 
-const isResetTag = (
-  atom: Record<ResetTags, string>,
-  component: ResetTags | ReactType,
-): component is ResetTags =>
-  typeof component === 'string' && Object.keys(atom).indexOf(component) > -1;
-
 export const Reset = ({
   component = 'div',
-  className = '',
+  className,
   ...restProps
-}: ResetProps) => {
-  const theme = useTheme();
-  const resetClass = isResetTag(theme.atoms.reset, component)
-    ? theme.atoms.reset[component]
-    : '';
-
-  return React.createElement(component, {
-    className: classnames(className, resetClass),
+}: ResetProps) =>
+  createElement(component, {
+    className: useClassNames(
+      className,
+      baseReset,
+      specificResets[component as keyof typeof specificResets],
+    ),
     ...restProps,
   });
-};

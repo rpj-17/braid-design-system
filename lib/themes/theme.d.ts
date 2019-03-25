@@ -1,3 +1,4 @@
+import { ThemeRef } from 'treat';
 // Text definitions
 interface TextDefinition {
   size: number;
@@ -85,87 +86,6 @@ type FontSize = TextSize | HeadingSize;
 export type FontWeight = 'regular' | 'medium' | 'strong';
 export type Display = 'block' | 'inline' | 'none' | 'inlineBlock' | 'flex';
 export type FlexDirection = 'row' | 'column';
-type ResetTags =
-  | 'html'
-  | 'body'
-  | 'div'
-  | 'span'
-  | 'applet'
-  | 'object'
-  | 'iframe'
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'p'
-  | 'blockquote'
-  | 'pre'
-  | 'a'
-  | 'abbr'
-  | 'acronym'
-  | 'address'
-  | 'big'
-  | 'cite'
-  | 'code'
-  | 'del'
-  | 'dfn'
-  | 'em'
-  | 'img'
-  | 'ins'
-  | 'kbd'
-  | 'q'
-  | 's'
-  | 'samp'
-  | 'small'
-  | 'strike'
-  | 'strong'
-  | 'sub'
-  | 'sup'
-  | 'tt'
-  | 'b'
-  | 'u'
-  | 'i'
-  | 'center'
-  | 'dl'
-  | 'dt'
-  | 'dd'
-  | 'ol'
-  | 'ul'
-  | 'li'
-  | 'fieldset'
-  | 'form'
-  | 'label'
-  | 'legend'
-  | 'table'
-  | 'caption'
-  | 'tbody'
-  | 'tfoot'
-  | 'thead'
-  | 'tr'
-  | 'th'
-  | 'td'
-  | 'article'
-  | 'aside'
-  | 'canvas'
-  | 'details'
-  | 'embed'
-  | 'figure'
-  | 'figcaption'
-  | 'footer'
-  | 'header'
-  | 'hgroup'
-  | 'menu'
-  | 'nav'
-  | 'output'
-  | 'ruby'
-  | 'section'
-  | 'summary'
-  | 'time'
-  | 'mark'
-  | 'audio'
-  | 'video';
 export type IconSize =
   | 'standardText'
   | 'standardTextInline'
@@ -193,7 +113,6 @@ export type Transform =
 type Transition = 'fast' | 'touchable';
 
 export interface Atoms {
-  reset: Record<ResetTags, string>;
   backgroundColor: Record<BackgroundColor, string>;
   borderRadius: Record<BorderRadius, string>;
   boxShadow: Record<BoxShadow, string>;
@@ -233,4 +152,5 @@ export interface Theme {
   readonly name: string;
   readonly tokens: Tokens;
   readonly atoms: Atoms;
+  readonly treatTheme: ThemeRef;
 }

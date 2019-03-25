@@ -69,6 +69,7 @@
     "basekick": "^3.0.0",
     "classnames": "^2.2.6",
     "polished": "^3.0.3",
+    "treat": "^1.0.0-alpha.11",
     "utility-types": "^3.2.1"
   },
   "peerDependencies": {
