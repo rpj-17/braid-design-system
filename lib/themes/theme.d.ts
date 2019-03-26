@@ -114,7 +114,6 @@ type Transition = 'fast' | 'touchable';
 
 export interface Atoms {
   borderRadius: Record<BorderRadius, string>;
-  boxShadow: Record<BoxShadow, string>;
   color: Record<Color, string>;
   fill: Record<Fill, string>;
   fontFamily: Record<FontFamily, string>;

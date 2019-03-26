@@ -105,9 +105,8 @@ export const Box = ({
       className={useClassNames(
         className,
         styles.backgroundColors[backgroundColor!],
-        atoms.boxShadow[boxShadow!],
+        styles.boxShadow[boxShadow!],
         atoms.borderRadius[borderRadius!],
-        atoms.boxShadow[boxShadow!],
         atoms.transition[transition!],
         atoms.transform[transform!],
         atoms.minHeight[minHeight!],
