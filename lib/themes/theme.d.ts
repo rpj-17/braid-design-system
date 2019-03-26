@@ -133,7 +133,6 @@ export interface Atoms {
   flexDirection: Record<FlexDirection, string>;
   flexDirectionDesktop: Record<FlexDirection, string>;
   transform: Record<Transform, string>;
-  transition: Record<Transition, string>;
   width: Record<IconSize | Width, string>;
 }
 

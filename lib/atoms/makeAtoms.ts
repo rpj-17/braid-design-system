@@ -7,7 +7,6 @@ import { Css } from './types';
 
 import makeColors, { ColorParams } from './color/makeColors';
 import makeDisplayRules from './makeDisplayRules';
-import makeTransitions from './makeTransitions';
 import makeFontWeight, { FontWeightParams } from './font/makeFontWeights';
 import makeFontFamily, { FontFamilyParams } from './font/makeFontFamily';
 import makePadding from './makePadding';
@@ -38,7 +37,6 @@ const makeAtoms = (
     makePadding(tokens),
     makeDisplayRules(tokens),
     makeTransforms(tokens, transforms),
-    makeTransitions(),
     makeFlexDirections(tokens),
   );
 

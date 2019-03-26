@@ -159,10 +159,6 @@ export default (atoms: typeof CssModuleAtoms): Atoms => ({
     standardText: atoms.transform_standardText,
     touchable: atoms.transform_touchable,
   },
-  transition: {
-    fast: atoms.transition_fast,
-    touchable: atoms.transition_touchable,
-  },
   width: {
     largeText: atoms.width_largeText,
     largeTextInline: atoms.width_largeTextInline,
