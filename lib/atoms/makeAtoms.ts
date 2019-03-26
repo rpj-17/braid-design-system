@@ -11,9 +11,6 @@ import makeTransitions from './makeTransitions';
 import makeFontWeight, { FontWeightParams } from './font/makeFontWeights';
 import makeFontFamily, { FontFamilyParams } from './font/makeFontFamily';
 import makeBorderRadius, { BorderRadiusParams } from './makeBorderRadius';
-import makeBackgroundColors, {
-  BackgroundColorParams,
-} from './color/makeBackgroundColors';
 import makeBoxShadows, { BoxShadowParams } from './makeBoxShadows';
 import makePadding from './makePadding';
 import makeTransforms, { TransformParams } from './makeTransforms';
@@ -30,12 +27,11 @@ const makeAtoms = (
   borderRadius: BorderRadiusParams,
   boxShadows: BoxShadowParams,
   fontWeights: FontWeightParams,
-  backgroundColor: BackgroundColorParams,
+  backgroundColor: {},
   transforms: TransformParams,
 ): Css => {
   const rules = merge(
     makeFontSizes(tokens),
-    makeBackgroundColors(backgroundColor),
     makeBorderRadius(borderRadius),
     makeBoxShadows(tokens, boxShadows),
     makeColors(colors),

@@ -2,21 +2,6 @@ import { Atoms } from '../themes/theme';
 import CssModuleAtoms from '../themes/wireframe/atoms.css.js.d';
 
 export default (atoms: typeof CssModuleAtoms): Atoms => ({
-  backgroundColor: {
-    card: atoms.backgroundColor_card,
-    critical: atoms.backgroundColor_critical,
-    brandAccent: atoms.backgroundColor_brandAccent,
-    brandAccentActive: atoms.backgroundColor_brandAccentActive,
-    brandAccentHover: atoms.backgroundColor_brandAccentHover,
-    formAccent: atoms.backgroundColor_formAccent,
-    formAccentActive: atoms.backgroundColor_formAccentActive,
-    formAccentHover: atoms.backgroundColor_formAccentHover,
-    formAccentDisabled: atoms.backgroundColor_formAccentDisabled,
-    info: atoms.backgroundColor_info,
-    input: atoms.backgroundColor_input,
-    inputDisabled: atoms.backgroundColor_inputDisabled,
-    selection: atoms.backgroundColor_selection,
-  },
   borderRadius: {
     standard: atoms.borderRadius_standard,
   },

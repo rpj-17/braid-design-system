@@ -104,7 +104,7 @@ export const Box = ({
     <Reset
       className={useClassNames(
         className,
-        atoms.backgroundColor[backgroundColor!],
+        styles.backgroundColors[backgroundColor!],
         atoms.boxShadow[boxShadow!],
         atoms.borderRadius[borderRadius!],
         atoms.boxShadow[boxShadow!],

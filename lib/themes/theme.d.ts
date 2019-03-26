@@ -113,7 +113,6 @@ export type Transform =
 type Transition = 'fast' | 'touchable';
 
 export interface Atoms {
-  backgroundColor: Record<BackgroundColor, string>;
   borderRadius: Record<BorderRadius, string>;
   boxShadow: Record<BoxShadow, string>;
   color: Record<Color, string>;
