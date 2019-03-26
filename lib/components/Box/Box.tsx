@@ -50,9 +50,7 @@ function getResponsiveClassRefs<StyleName extends string>(
     return styles.main[propValue];
   }
 
-  return propValue[0] !== propValue[1]
-    ? [styles.main[propValue[0]], styles.desktop[propValue[1]]]
-    : styles.main[propValue[0]];
+  return [styles.main[propValue[0]], styles.desktop[propValue[1]]];
 }
 
 type ResponsiveProp<AtomName> = AtomName | [AtomName, AtomName];
