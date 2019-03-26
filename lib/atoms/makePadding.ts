@@ -1,6 +1,5 @@
 import { Tokens, Breakpoint } from '../themes/theme';
 import rowSpacingForCssRule from './utils/rowSpacingForCssRule';
-import columnSpacingForCssRule from './utils/columnSpacingForCssRule';
 import makeDesktopRules from './utils/makeDesktopRules';
 import { px } from './utils/toUnit';
 
@@ -31,9 +30,7 @@ const makePaddingRules = (tokens: Tokens, breakpoint: Breakpoint) => {
 
   return {
     ...rowSpacingForCssRule(`paddingTop${suffix}`, 'paddingTop', tokens),
-    ...columnSpacingForCssRule(`paddingRight${suffix}`, 'paddingRight', tokens),
     ...rowSpacingForCssRule(`paddingBottom${suffix}`, 'paddingBottom', tokens),
-    ...columnSpacingForCssRule(`paddingLeft${suffix}`, 'paddingLeft', tokens),
     ...touchablePaddingRules(tokens, suffix, breakpoint),
   };
 };

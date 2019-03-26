@@ -121,13 +121,9 @@ export interface Atoms {
   height: Record<IconSize, string>;
   minHeight: Record<IconSize, string>;
   paddingTop: Record<VerticalPadding, string>;
-  paddingRight: Record<HorizontalSpacing, string>;
   paddingBottom: Record<VerticalPadding, string>;
-  paddingLeft: Record<HorizontalSpacing, string>;
   paddingTopDesktop: Record<VerticalPadding, string>;
-  paddingRightDesktop: Record<HorizontalSpacing, string>;
   paddingBottomDesktop: Record<VerticalPadding, string>;
-  paddingLeftDesktop: Record<HorizontalSpacing, string>;
   transform: Record<Transform, string>;
   width: Record<IconSize | Width, string>;
 }

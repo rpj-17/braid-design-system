@@ -6,7 +6,12 @@ import { FieldOverlay } from '../private/FieldOverlay/FieldOverlay';
 import styles from './TextLinkRenderer.css.js';
 import { useTheme } from '../private/ThemeContext';
 import { baseReset } from '../Reset/Reset.treat';
-import { display, borderRadius } from '../Box/Box.treat';
+import {
+  display,
+  borderRadius,
+  paddingLeft,
+  paddingRight,
+} from '../Box/Box.treat';
 
 interface StyleProps {
   style: CSSProperties;
@@ -43,8 +48,8 @@ export const TextLinkRenderer = ({
       styles.root_isButton,
       display.main.block,
       atoms.width.full,
-      atoms.paddingLeft.small,
-      atoms.paddingRight.small,
+      paddingLeft.main.small,
+      paddingRight.main.small,
       borderRadius.standard,
     ];
 

@@ -106,24 +106,22 @@ export const Box = ({
         styles.boxShadow[boxShadow!],
         styles.borderRadius[borderRadius!],
         styles.transition[transition!],
-        atoms.transform[transform!],
-        atoms.minHeight[minHeight!],
-        atoms.width[width!],
         getResponsiveClassRefs(styles.marginTop, marginTop),
         getResponsiveClassRefs(styles.marginRight, marginRight),
         getResponsiveClassRefs(styles.marginBottom, marginBottom),
         getResponsiveClassRefs(styles.marginLeft, marginLeft),
+        getResponsiveClassRefs(styles.paddingRight, paddingRight),
+        getResponsiveClassRefs(styles.paddingLeft, paddingLeft),
+        getResponsiveClassRefs(styles.display, display),
+        getResponsiveClassRefs(styles.flexDirection, flexDirection),
+        atoms.transform[transform!],
+        atoms.minHeight[minHeight!],
+        atoms.width[width!],
         paddingTop &&
           getResponsiveClasses(
             atoms.paddingTop,
             atoms.paddingTopDesktop,
             paddingTop,
-          ),
-        paddingRight &&
-          getResponsiveClasses(
-            atoms.paddingRight,
-            atoms.paddingRightDesktop,
-            paddingRight,
           ),
         paddingBottom &&
           getResponsiveClasses(
@@ -131,14 +129,6 @@ export const Box = ({
             atoms.paddingBottomDesktop,
             paddingBottom,
           ),
-        paddingLeft &&
-          getResponsiveClasses(
-            atoms.paddingLeft,
-            atoms.paddingLeftDesktop,
-            paddingLeft,
-          ),
-        getResponsiveClassRefs(styles.display, display),
-        getResponsiveClassRefs(styles.flexDirection, flexDirection),
       )}
       {...restProps}
     />
