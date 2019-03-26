@@ -165,7 +165,7 @@ const makeRowSpacing = <RuleName extends string>(ruleName: RuleName) => {
         [ruleName]: px(value * theme.tokens.rowHeight),
       }),
     ),
-    none,
+    none: makeDesktopRule(theme, none),
   }));
 
   return {
@@ -203,7 +203,7 @@ const makeColumnSpacing = <RuleName extends string>(ruleName: RuleName) => {
         [ruleName]: px(value * theme.tokens.columnWidth),
       }),
     ),
-    none,
+    none: makeDesktopRule(theme, none),
   }));
 
   return {

@@ -11,6 +11,8 @@ import {
   borderRadius,
   paddingLeft,
   paddingRight,
+  paddingTop,
+  paddingBottom,
 } from '../Box/Box.treat';
 
 interface StyleProps {
@@ -39,8 +41,8 @@ export const TextLinkRenderer = ({
   }
 
   const touchableStyles = [
-    atoms.paddingTop.standardTouchableText,
-    atoms.paddingBottom.standardTouchableText,
+    paddingTop.main.standardTouchableText,
+    paddingBottom.main.standardTouchableText,
   ];
 
   if (inActions) {

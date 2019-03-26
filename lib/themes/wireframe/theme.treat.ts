@@ -2,7 +2,7 @@ import { createTheme } from 'treat';
 import tokens from './tokens';
 
 const focusColor = 'DeepSkyBlue';
-const formAccent = 'blue';
+const formAccent = 'black';
 const brandAccent = 'DarkOrange';
 
 const color = {

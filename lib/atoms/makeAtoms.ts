@@ -8,7 +8,6 @@ import { Css } from './types';
 import makeColors, { ColorParams } from './color/makeColors';
 import makeFontWeight, { FontWeightParams } from './font/makeFontWeights';
 import makeFontFamily, { FontFamilyParams } from './font/makeFontFamily';
-import makePadding from './makePadding';
 import makeTransforms, { TransformParams } from './makeTransforms';
 import makeSizes from './makeSizes';
 import makeFontSizes from './font/makeFontSizes';
@@ -32,7 +31,6 @@ const makeAtoms = (
     makeFontFamily(fontFamily),
     makeFontWeight(fontWeights),
     makeSizes(tokens),
-    makePadding(tokens),
     makeTransforms(tokens, transforms),
   );
 

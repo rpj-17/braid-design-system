@@ -92,17 +92,6 @@ export type IconSize =
   | 'largeText'
   | 'largeTextInline';
 export type Width = 'full';
-type Spacing =
-  | 'none'
-  | 'xxsmall'
-  | 'xsmall'
-  | 'small'
-  | 'medium'
-  | 'large'
-  | 'xlarge'
-  | 'xxlarge';
-type HorizontalSpacing = Spacing | 'gutter';
-type VerticalPadding = Spacing | 'standardTouchableText';
 export type Transform =
   | 'standardText'
   | 'largeText'
@@ -120,10 +109,6 @@ export interface Atoms {
   fontWeight: Record<FontWeight, string>;
   height: Record<IconSize, string>;
   minHeight: Record<IconSize, string>;
-  paddingTop: Record<VerticalPadding, string>;
-  paddingBottom: Record<VerticalPadding, string>;
-  paddingTopDesktop: Record<VerticalPadding, string>;
-  paddingBottomDesktop: Record<VerticalPadding, string>;
   transform: Record<Transform, string>;
   width: Record<IconSize | Width, string>;
 }

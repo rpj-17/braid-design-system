@@ -3,9 +3,6 @@ import { useClassNames, ClassRef } from 'treat';
 import { useTheme } from '../private/ThemeContext';
 import { Reset, ResetProps } from '../Reset/Reset';
 import {
-  HorizontalSpacing,
-  VerticalPadding,
-  Spacing,
   BorderRadius,
   BackgroundColor,
   Display,
@@ -19,27 +16,13 @@ import {
 
 import * as styles from './Box.treat';
 
-function getResponsiveClasses<AtomName extends string>(
-  atoms: Record<AtomName, string>,
-  desktopAtoms: Record<AtomName, string>,
-  propValue: ResponsiveProp<AtomName>,
-) {
-  if (typeof propValue === 'string') {
-    return atoms[propValue!];
-  } else if (propValue instanceof Array) {
-    return propValue[0] !== propValue[1]
-      ? `${atoms[propValue[0]!] || ''} ${desktopAtoms[propValue[1]!] || ''}`
-      : atoms[propValue[0]!];
-  }
-}
-
 interface ResponsiveStyle<StyleName extends string> {
   main: Record<StyleName, ClassRef>;
   desktop: Record<StyleName, ClassRef>;
 }
 
 function getResponsiveClassRefs<StyleName extends string>(
-  styles: ResponsiveStyle<StyleName>,
+  refs: ResponsiveStyle<StyleName>,
   propValue: ResponsiveProp<StyleName> | undefined,
 ) {
   if (!propValue) {
@@ -47,13 +30,24 @@ function getResponsiveClassRefs<StyleName extends string>(
   }
 
   if (typeof propValue === 'string') {
-    return styles.main[propValue];
+    return refs.main[propValue];
   }
 
-  return [styles.main[propValue[0]], styles.desktop[propValue[1]]];
+  return [refs.main[propValue[0]], refs.desktop[propValue[1]]];
 }
 
 type ResponsiveProp<AtomName> = AtomName | [AtomName, AtomName];
+type Spacing =
+  | 'none'
+  | 'xxsmall'
+  | 'xsmall'
+  | 'small'
+  | 'medium'
+  | 'large'
+  | 'xlarge'
+  | 'xxlarge';
+type HorizontalSpacing = Spacing | 'gutter';
+type VerticalPadding = Spacing | 'standardTouchableText';
 
 export interface BoxProps extends ResetProps {
   marginTop?: ResponsiveProp<Spacing>;
@@ -110,25 +104,15 @@ export const Box = ({
         getResponsiveClassRefs(styles.marginRight, marginRight),
         getResponsiveClassRefs(styles.marginBottom, marginBottom),
         getResponsiveClassRefs(styles.marginLeft, marginLeft),
+        getResponsiveClassRefs(styles.paddingTop, paddingTop),
         getResponsiveClassRefs(styles.paddingRight, paddingRight),
+        getResponsiveClassRefs(styles.paddingBottom, paddingBottom),
         getResponsiveClassRefs(styles.paddingLeft, paddingLeft),
         getResponsiveClassRefs(styles.display, display),
         getResponsiveClassRefs(styles.flexDirection, flexDirection),
         atoms.transform[transform!],
         atoms.minHeight[minHeight!],
         atoms.width[width!],
-        paddingTop &&
-          getResponsiveClasses(
-            atoms.paddingTop,
-            atoms.paddingTopDesktop,
-            paddingTop,
-          ),
-        paddingBottom &&
-          getResponsiveClasses(
-            atoms.paddingBottom,
-            atoms.paddingBottomDesktop,
-            paddingBottom,
-          ),
       )}
       {...restProps}
     />
