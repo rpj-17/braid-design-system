@@ -140,12 +140,7 @@ export const Box = ({
             paddingLeft,
           ),
         getResponsiveClassRefs(styles.display, display),
-        flexDirection &&
-          getResponsiveClasses(
-            atoms.flexDirection,
-            atoms.flexDirectionDesktop,
-            flexDirection,
-          ),
+        getResponsiveClassRefs(styles.flexDirection, flexDirection),
       )}
       {...restProps}
     />

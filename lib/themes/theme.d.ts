@@ -128,8 +128,6 @@ export interface Atoms {
   paddingRightDesktop: Record<HorizontalSpacing, string>;
   paddingBottomDesktop: Record<VerticalPadding, string>;
   paddingLeftDesktop: Record<HorizontalSpacing, string>;
-  flexDirection: Record<FlexDirection, string>;
-  flexDirectionDesktop: Record<FlexDirection, string>;
   transform: Record<Transform, string>;
   width: Record<IconSize | Width, string>;
 }

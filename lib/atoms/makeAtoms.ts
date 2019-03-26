@@ -11,7 +11,6 @@ import makeFontFamily, { FontFamilyParams } from './font/makeFontFamily';
 import makePadding from './makePadding';
 import makeTransforms, { TransformParams } from './makeTransforms';
 import makeSizes from './makeSizes';
-import makeFlexDirections from './makeFlexDirections';
 import makeFontSizes from './font/makeFontSizes';
 import makeFills, { FillParams } from './color/makeFills';
 
@@ -35,7 +34,6 @@ const makeAtoms = (
     makeSizes(tokens),
     makePadding(tokens),
     makeTransforms(tokens, transforms),
-    makeFlexDirections(tokens),
   );
 
   const [queryRules, regularRules] = partition(Object.keys(rules), ruleName =>

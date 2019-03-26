@@ -58,15 +58,16 @@ export const display = {
   })),
 };
 
-export const flexDirection = css({
-  row: { flexDirection: 'row' as 'row' },
-  column: { flexDirection: 'column' as 'column' },
-});
-
-export const flexDirectionDesktop = css(theme => ({
-  row: makeDesktopRule(theme, { flexDirection: 'row' as 'row' }),
-  column: makeDesktopRule(theme, { flexDirection: 'column' as 'column' }),
-}));
+export const flexDirection = {
+  main: css({
+    row: { flexDirection: 'row' as 'row' },
+    column: { flexDirection: 'column' as 'column' },
+  }),
+  desktop: css(theme => ({
+    row: makeDesktopRule(theme, { flexDirection: 'row' as 'row' }),
+    column: makeDesktopRule(theme, { flexDirection: 'column' as 'column' }),
+  })),
+};
 
 export const borderRadius = css(theme => ({
   standard: { borderRadius: theme.borderRadius.standard },
