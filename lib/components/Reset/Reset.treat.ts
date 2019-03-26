@@ -37,6 +37,9 @@ const reset = css({
     backgroundColor: 'transparent',
     color: 'inherit',
   },
+  select: {
+    appearance: 'none',
+  },
 });
 
 export const baseReset = reset.base;
@@ -60,4 +63,5 @@ export const specificResets = {
   body: reset.body,
   table: reset.table,
   mark: reset.mark,
+  select: reset.select,
 };
