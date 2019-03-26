@@ -122,14 +122,6 @@ export interface Atoms {
   fontSize: Record<FontSize, string>;
   fontWeight: Record<FontWeight, string>;
   height: Record<IconSize, string>;
-  marginTop: Record<Spacing, string>;
-  marginRight: Record<HorizontalSpacing, string>;
-  marginBottom: Record<Spacing, string>;
-  marginLeft: Record<HorizontalSpacing, string>;
-  marginTopDesktop: Record<Spacing, string>;
-  marginRightDesktop: Record<HorizontalSpacing, string>;
-  marginBottomDesktop: Record<Spacing, string>;
-  marginLeftDesktop: Record<HorizontalSpacing, string>;
   minHeight: Record<IconSize, string>;
   paddingTop: Record<VerticalPadding, string>;
   paddingRight: Record<HorizontalSpacing, string>;

@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import { useClassNames, ClassRef } from 'treat';
 import { useTheme } from '../private/ThemeContext';
 import { Reset, ResetProps } from '../Reset/Reset';
 import {
@@ -17,6 +17,8 @@ import {
   IconSize,
 } from '../../themes/theme';
 
+import * as styles from './Box.treat';
+
 function getResponsiveClasses<AtomName extends string>(
   atoms: Record<AtomName, string>,
   desktopAtoms: Record<AtomName, string>,
@@ -31,17 +33,39 @@ function getResponsiveClasses<AtomName extends string>(
   }
 }
 
+interface ResponsiveStyle<StyleName extends string> {
+  main: Record<StyleName, ClassRef>;
+  desktop: Record<StyleName, ClassRef>;
+}
+
+function getResponsiveClassRefs<StyleName extends string>(
+  styles: ResponsiveStyle<StyleName>,
+  propValue: ResponsiveProp<StyleName> | undefined,
+) {
+  if (!propValue) {
+    return;
+  }
+
+  if (typeof propValue === 'string') {
+    return styles.main[propValue];
+  }
+
+  return propValue[0] !== propValue[1]
+    ? [styles.main[propValue[0]], styles.desktop[propValue[1]]]
+    : styles.main[propValue[0]];
+}
+
 type ResponsiveProp<AtomName> = AtomName | [AtomName, AtomName];
 
 export interface BoxProps extends ResetProps {
-  paddingTop?: ResponsiveProp<VerticalPadding>;
-  paddingBottom?: ResponsiveProp<VerticalPadding>;
-  paddingLeft?: ResponsiveProp<HorizontalSpacing>;
-  paddingRight?: ResponsiveProp<HorizontalSpacing>;
   marginTop?: ResponsiveProp<Spacing>;
   marginBottom?: ResponsiveProp<Spacing>;
   marginLeft?: ResponsiveProp<HorizontalSpacing>;
   marginRight?: ResponsiveProp<HorizontalSpacing>;
+  paddingTop?: ResponsiveProp<VerticalPadding>;
+  paddingBottom?: ResponsiveProp<VerticalPadding>;
+  paddingLeft?: ResponsiveProp<HorizontalSpacing>;
+  paddingRight?: ResponsiveProp<HorizontalSpacing>;
   display?: ResponsiveProp<Display>;
   flexDirection?: ResponsiveProp<FlexDirection>;
   borderRadius?: BorderRadius;
@@ -78,7 +102,7 @@ export const Box = ({
 
   return (
     <Reset
-      className={classnames(
+      className={useClassNames(
         className,
         atoms.backgroundColor[backgroundColor!],
         atoms.boxShadow[boxShadow!],
@@ -88,30 +112,10 @@ export const Box = ({
         atoms.transform[transform!],
         atoms.minHeight[minHeight!],
         atoms.width[width!],
-        marginTop &&
-          getResponsiveClasses(
-            atoms.marginTop,
-            atoms.marginTopDesktop,
-            marginTop,
-          ),
-        marginRight &&
-          getResponsiveClasses(
-            atoms.marginRight,
-            atoms.marginRightDesktop,
-            marginRight,
-          ),
-        marginBottom &&
-          getResponsiveClasses(
-            atoms.marginBottom,
-            atoms.marginBottomDesktop,
-            marginBottom,
-          ),
-        marginLeft &&
-          getResponsiveClasses(
-            atoms.marginLeft,
-            atoms.marginLeftDesktop,
-            marginLeft,
-          ),
+        getResponsiveClassRefs(styles.marginTop, marginTop),
+        getResponsiveClassRefs(styles.marginRight, marginRight),
+        getResponsiveClassRefs(styles.marginBottom, marginBottom),
+        getResponsiveClassRefs(styles.marginLeft, marginLeft),
         paddingTop &&
           getResponsiveClasses(
             atoms.paddingTop,
