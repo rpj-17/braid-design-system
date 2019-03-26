@@ -6,6 +6,7 @@ import { FieldOverlay } from '../private/FieldOverlay/FieldOverlay';
 import styles from './TextLinkRenderer.css.js';
 import { useTheme } from '../private/ThemeContext';
 import { baseReset } from '../Reset/Reset.treat';
+import { borderRadius } from '../Box/Box.treat';
 
 interface StyleProps {
   style: CSSProperties;
@@ -44,7 +45,7 @@ export const TextLinkRenderer = ({
       atoms.width.full,
       atoms.paddingLeft.small,
       atoms.paddingRight.small,
-      atoms.borderRadius.standard,
+      borderRadius.standard,
     ];
 
     return (

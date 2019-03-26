@@ -2,9 +2,6 @@ import { Atoms } from '../themes/theme';
 import CssModuleAtoms from '../themes/wireframe/atoms.css.js.d';
 
 export default (atoms: typeof CssModuleAtoms): Atoms => ({
-  borderRadius: {
-    standard: atoms.borderRadius_standard,
-  },
   color: {
     link: atoms.color_link,
     black: atoms.color_black,
