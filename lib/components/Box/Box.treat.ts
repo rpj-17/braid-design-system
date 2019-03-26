@@ -41,21 +41,22 @@ export const backgroundColors = css(theme => ({
   critical: { backgroundColor: theme.backgroundColor.critical },
 }));
 
-export const display = css({
-  block: { display: 'block' },
-  inline: { display: 'inline' },
-  none: { display: 'none' },
-  inlineBlock: { display: 'inline-block' },
-  flex: { display: 'flex' },
-});
-
-export const displayDesktop = css(theme => ({
-  block: makeDesktopRule(theme, { display: 'block' }),
-  inline: makeDesktopRule(theme, { display: 'inline' }),
-  none: makeDesktopRule(theme, { display: 'none' }),
-  inlineBlock: makeDesktopRule(theme, { display: 'inline-block' }),
-  flex: makeDesktopRule(theme, { display: 'flex' }),
-}));
+export const display = {
+  main: css({
+    block: { display: 'block' },
+    inline: { display: 'inline' },
+    none: { display: 'none' },
+    inlineBlock: { display: 'inline-block' },
+    flex: { display: 'flex' },
+  }),
+  desktop: css(theme => ({
+    block: makeDesktopRule(theme, { display: 'block' }),
+    inline: makeDesktopRule(theme, { display: 'inline' }),
+    none: makeDesktopRule(theme, { display: 'none' }),
+    inlineBlock: makeDesktopRule(theme, { display: 'inline-block' }),
+    flex: makeDesktopRule(theme, { display: 'flex' }),
+  })),
+};
 
 export const flexDirection = css({
   row: { flexDirection: 'row' as 'row' },

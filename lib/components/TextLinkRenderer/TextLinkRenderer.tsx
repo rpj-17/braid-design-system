@@ -6,7 +6,7 @@ import { FieldOverlay } from '../private/FieldOverlay/FieldOverlay';
 import styles from './TextLinkRenderer.css.js';
 import { useTheme } from '../private/ThemeContext';
 import { baseReset } from '../Reset/Reset.treat';
-import { borderRadius } from '../Box/Box.treat';
+import { display, borderRadius } from '../Box/Box.treat';
 
 interface StyleProps {
   style: CSSProperties;
@@ -41,7 +41,7 @@ export const TextLinkRenderer = ({
   if (inActions) {
     const actionStyles = [
       styles.root_isButton,
-      atoms.display.block,
+      display.main.block,
       atoms.width.full,
       atoms.paddingLeft.small,
       atoms.paddingRight.small,
@@ -72,7 +72,7 @@ export const TextLinkRenderer = ({
         className: useClassNames(
           defaultStyles,
           touchableStyles,
-          atoms.display.inlineBlock,
+          display.main.inlineBlock,
         ),
       })}
     </Text>

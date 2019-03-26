@@ -139,8 +139,7 @@ export const Box = ({
             atoms.paddingLeftDesktop,
             paddingLeft,
           ),
-        display &&
-          getResponsiveClasses(atoms.display, atoms.displayDesktop, display),
+        getResponsiveClassRefs(styles.display, display),
         flexDirection &&
           getResponsiveClasses(
             atoms.flexDirection,

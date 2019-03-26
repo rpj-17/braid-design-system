@@ -13,20 +13,6 @@ export default (atoms: typeof CssModuleAtoms): Atoms => ({
     secondary: atoms.color_secondary,
     white: atoms.color_white,
   },
-  displayDesktop: {
-    block: atoms.displayDesktop_block,
-    flex: atoms.displayDesktop_flex,
-    inline: atoms.displayDesktop_inline,
-    inlineBlock: atoms.displayDesktop_inlineBlock,
-    none: atoms.displayDesktop_none,
-  },
-  display: {
-    block: atoms.display_block,
-    flex: atoms.display_flex,
-    inline: atoms.display_inline,
-    inlineBlock: atoms.display_inlineBlock,
-    none: atoms.display_none,
-  },
   fill: {
     critical: atoms.fill_critical,
     currentColor: atoms.fill_currentColor,

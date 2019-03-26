@@ -6,7 +6,6 @@ import { Tokens } from '../themes/theme';
 import { Css } from './types';
 
 import makeColors, { ColorParams } from './color/makeColors';
-import makeDisplayRules from './makeDisplayRules';
 import makeFontWeight, { FontWeightParams } from './font/makeFontWeights';
 import makeFontFamily, { FontFamilyParams } from './font/makeFontFamily';
 import makePadding from './makePadding';
@@ -35,7 +34,6 @@ const makeAtoms = (
     makeFontWeight(fontWeights),
     makeSizes(tokens),
     makePadding(tokens),
-    makeDisplayRules(tokens),
     makeTransforms(tokens, transforms),
     makeFlexDirections(tokens),
   );
