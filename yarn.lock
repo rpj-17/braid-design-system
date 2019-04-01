@@ -2658,6 +2658,18 @@ autoprefixer@^9.3.1, autoprefixer@^9.4.5:
     postcss "^7.0.14"
     postcss-value-parser "^3.3.1"
 
+autoprefixer@^9.5.0:
+  version "9.5.0"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-9.5.0.tgz#7e51d0355c11596e6cf9a0afc9a44e86d1596c70"
+  integrity sha512-hMKcyHsZn5+qL6AUeP3c8OyuteZ4VaUlg+fWbyl8z7PqsKHF/Bf8/px3K6AT8aMzDkBo8Bc11245MM+itDBOxQ==
+  dependencies:
+    browserslist "^4.4.2"
+    caniuse-lite "^1.0.30000947"
+    normalize-range "^0.1.2"
+    num2fraction "^1.2.2"
+    postcss "^7.0.14"
+    postcss-value-parser "^3.3.1"
+
 aws-sign2@~0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
@@ -3712,6 +3724,11 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000884, caniuse-lite@^1.0.30000939, can
   version "1.0.30000941"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000941.tgz#f0810802b2ab8d27f4b625d4769a610e24d5a42c"
   integrity sha512-4vzGb2MfZcO20VMPj1j6nRAixhmtlhkypM4fL4zhgzEucQIYiRzSqPcWIu1OF8i0FETD93FMIPWfUJCAcFvrqA==
+
+caniuse-lite@^1.0.30000947:
+  version "1.0.30000955"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000955.tgz#360fdb9a1e41d6dd996130411334e44a39e4446d"
+  integrity sha512-6AwmIKgqCYfDWWadRkAuZSHMQP4Mmy96xAXEdRBlN/luQhlRYOKgwOlZ9plpCOsVbBuqbTmGqDK3JUM/nlr8CA==
 
 capture-exit@^1.2.0:
   version "1.2.0"
@@ -4788,7 +4805,7 @@ cssnano-util-same-parent@^4.0.0:
   resolved "https://registry.yarnpkg.com/cssnano-util-same-parent/-/cssnano-util-same-parent-4.0.1.tgz#574082fb2859d2db433855835d9a8456ea18bbf3"
   integrity sha512-WcKx5OY+KoSIAxBW6UBBRay1U6vkYheCdjyVNDm85zt5K9mHoGOfsOsqIszfAqrQQFIIKgjh2+FDgIj/zsl21Q==
 
-cssnano@^4.1.8:
+cssnano@^4.1.10, cssnano@^4.1.8:
   version "4.1.10"
   resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-4.1.10.tgz#0ac41f0b13d13d465487e111b778d42da631b8b2"
   integrity sha512-5wny+F6H4/8RgNlaqab4ktc3e0/blKutmq8yNlBFXA//nSFFAqAngjNVRzUvCgYROULmZZUoosL/KSoZo5aUaQ==
@@ -14590,13 +14607,15 @@ travis-deploy-once@^5.0.9:
     url-join "^4.0.0"
     yargs "^12.0.1"
 
-treat@^1.0.0-alpha.11:
-  version "1.0.0-alpha.11"
-  resolved "https://registry.yarnpkg.com/treat/-/treat-1.0.0-alpha.11.tgz#a3db757a828d75c3e9a162c4def9a926df6c800a"
-  integrity sha512-JjAmHOS/cmsL4h246T5/KZlPHk+VHzWiGpz7/WBnnyxmBI9aURTAouO/53hvwBwRO4MxVwzqWwIVg/G0Ly0nRQ==
+treat@^1.0.0-webpack-fix.3:
+  version "1.0.0-webpack-fix.3"
+  resolved "https://registry.yarnpkg.com/treat/-/treat-1.0.0-webpack-fix.3.tgz#e0d329c310cf169d1848540940d05dc871610468"
+  integrity sha512-h2k3ZR9jpd2P6ql1jg6jocxXDQ7X24rppH7ereJUrkD6k49PWM5z7vH3uQ8vIZMQrAd+0jV7GiftTlzZTp5sEQ==
   dependencies:
     "@types/lodash" "^4.14.123"
+    autoprefixer "^9.5.0"
     css-loader "^2.1.0"
+    cssnano "^4.1.10"
     csstype "^2.6.3"
     eval "^0.1.2"
     loader-utils "^1.2.3"
@@ -15324,10 +15343,9 @@ webpack-virtual-modules@^0.1.10:
   dependencies:
     debug "^3.0.0"
 
-webpack@^4.19.1, webpack@^4.23.1, webpack@^4.28.2:
-  version "4.29.6"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.29.6.tgz#66bf0ec8beee4d469f8b598d3988ff9d8d90e955"
-  integrity sha512-MwBwpiE1BQpMDkbnUUaW6K8RFZjljJHArC6tWQJoFm0oQtfoSebtg4Y7/QHnJ/SddtjYLHaKGX64CFjG5rehJw==
+webpack@^4.19.1, webpack@^4.23.1, webpack@^4.28.2, webpack@mattsjones/webpack#a5f5c4d0:
+  version "4.29.6-mattsjones"
+  resolved "https://codeload.github.com/mattsjones/webpack/tar.gz/a5f5c4d0a908cda9306bd3387f80bba14d313c0b"
   dependencies:
     "@webassemblyjs/ast" "1.8.5"
     "@webassemblyjs/helper-module-context" "1.8.5"
