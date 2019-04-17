@@ -69,7 +69,6 @@
     "basekick": "^3.0.0",
     "classnames": "^2.2.6",
     "polished": "^3.0.3",
-    "treat": "^1.0.0-webpack-fix.3",
     "utility-types": "^3.2.1"
   },
   "peerDependencies": {
@@ -126,17 +125,13 @@
     "react-transition-group": "^2.6.1",
     "renovate-config-seek": "0.4.0",
     "semantic-release": "^15.13.3",
-    "sku": "8.4.0",
+    "sku": "seek-oss/sku#636c6eb",
     "style-loader": "^0.23.1",
     "surge": "^0.20.1",
-    "travis-deploy-once": "^5.0.9",
-    "webpack": "mattsjones/webpack#a5f5c4d0"
+    "travis-deploy-once": "^5.0.9"
   },
   "toolchain": {
     "node": "10.15.1",
     "yarn": "1.13.0"
-  },
-  "resolutions": {
-    "webpack": "mattsjones/webpack#a5f5c4d0"
   }
 }

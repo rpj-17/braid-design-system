@@ -1,5 +1,3 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TreatPlugin = require('treat/plugin');
 const routes = require('./sku.routes.js');
 
 const isGitHubPages =
@@ -15,18 +13,4 @@ module.exports = {
   target: 'docs/dist',
   publicPath: isGitHubPages ? '/braid-design-system/' : '/',
   displayNamesProd: true,
-  dangerouslySetWebpackConfig: config => {
-    const isClient = config.name === 'client';
-
-    config.plugins.push(
-      new TreatPlugin({
-        outputCSS: isClient,
-        outputLoaders: [MiniCssExtractPlugin.loader],
-        localIdentName: '[name]-[local]_[hash:base64:5]',
-        themeIdentName: '-[folder]_[hash:base64:5]',
-      }),
-    );
-
-    return config;
-  },
 };

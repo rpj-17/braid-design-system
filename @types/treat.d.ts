@@ -41,7 +41,10 @@ declare module 'treat/theme' {
     fontFamily: string;
   }
 
-  type BoxShadowParams = Record<BoxShadow, string>;
+  type BoxShadowParams = Record<
+    'outlineFocus' | 'borderStandard' | 'borderFormAccent' | 'borderCritical',
+    string
+  >;
 
   interface FontWeightParams {
     regular: number;
