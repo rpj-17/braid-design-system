@@ -9,31 +9,31 @@ const tokens: Tokens = {
   heading: {
     level1: {
       regular: 'strong',
-      weak: 'regular',
+      weak: 'medium',
       mobile: {
         size: 28,
         rows: 9,
       },
       desktop: {
-        size: 36,
+        size: 34,
         rows: 11,
       },
     },
     level2: {
       regular: 'strong',
-      weak: 'regular',
+      weak: 'medium',
       mobile: {
         size: 24,
         rows: 8,
       },
       desktop: {
-        size: 30,
+        size: 28,
         rows: 9,
       },
     },
     level3: {
       regular: 'strong',
-      weak: 'regular',
+      weak: 'medium',
       mobile: {
         size: 20,
         rows: 7,
@@ -47,22 +47,22 @@ const tokens: Tokens = {
   text: {
     standard: {
       mobile: {
-        size: 14,
-        rows: 5,
+        size: 16,
+        rows: 6,
       },
       desktop: {
-        size: 14,
-        rows: 5,
+        size: 16,
+        rows: 6,
       },
     },
     large: {
       mobile: {
-        size: 16,
+        size: 18,
         rows: 6,
       },
       desktop: {
-        size: 16,
-        rows: 6,
+        size: 20,
+        rows: 7,
       },
     },
   },

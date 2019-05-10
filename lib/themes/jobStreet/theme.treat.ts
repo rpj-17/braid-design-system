@@ -1,10 +1,15 @@
 import makeTreatTheme from '../makeTreatTheme';
 import tokens from './tokens';
 
-const formAccent = '#142d69';
-const critical = '#eb0000';
-const info = '#142d69';
-const positive = 'green';
+import {
+  white,
+  grey1,
+  grey4,
+  critical,
+  info,
+  positive,
+  formAccent,
+} from './palette';
 
 export default makeTreatTheme({
   ...tokens,
@@ -12,12 +17,12 @@ export default makeTreatTheme({
   color: {
     foreground: {
       formAccent,
-      formAccentDisabled: '#ccc',
+      formAccentDisabled: grey4,
       critical,
       info,
       positive,
-      secondary: '#333333b3',
-      white: 'white',
+      secondary: grey1,
+      white,
     },
   },
 });
