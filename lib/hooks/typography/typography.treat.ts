@@ -101,7 +101,12 @@ export const heading = {
 };
 
 export const tone = styleMap(theme => {
-  const { linkHover, link, ...foreground } = theme.color.foreground;
+  const {
+    linkHover,
+    link,
+    neutralInverted, // Omit from public API
+    ...foreground
+  } = theme.color.foreground;
 
   return {
     ...mapToStyleProperty(foreground, 'color'),
@@ -134,8 +139,8 @@ const textColorForBackground = (
 ) =>
   style(theme => ({
     color: isLight(theme.color.background[background])
-      ? theme.color.foreground.black
-      : theme.color.foreground.white,
+      ? theme.color.foreground.neutral
+      : theme.color.foreground.neutralInverted,
   }));
 
 type Foreground = keyof typeof tone;

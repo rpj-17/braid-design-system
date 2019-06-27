@@ -2,6 +2,7 @@ import React, { ReactNode, AllHTMLAttributes, forwardRef } from 'react';
 import { useStyles } from 'sku/react-treat';
 import classnames from 'classnames';
 import { Box } from '../../Box/Box';
+import { BackgroundProvider } from '../../Box/BackgroundContext';
 import { FieldLabelProps } from '../../FieldLabel/FieldLabel';
 import {
   FieldMessage,
@@ -68,6 +69,8 @@ export const InlineField = forwardRef<HTMLElement, InternalInlineFieldProps>(
       throw new Error(`Invalid tone: ${tone}`);
     }
 
+    const selectedBackground = disabled ? 'formAccentDisabled' : 'formAccent';
+
     return (
       <Box>
         <Box
@@ -102,13 +105,18 @@ export const InlineField = forwardRef<HTMLElement, InternalInlineFieldProps>(
           >
             <FieldOverlay
               variant={tone === 'critical' && isCheckbox ? tone : undefined}
-              background={disabled ? 'formAccentDisabled' : 'formAccent'}
+              background={selectedBackground}
               borderRadius={fieldBorderRadius}
               className={classnames(styles.selected, radioStyles)}
             />
             {isCheckbox ? (
               <Box transition="fast" width="full" className={styles.icon}>
-                <TickIcon size="fill" tone="white" />
+                <BackgroundProvider value={selectedBackground}>
+                  <TickIcon
+                    size="fill"
+                    tone={disabled ? 'secondary' : undefined}
+                  />
+                </BackgroundProvider>
               </Box>
             ) : null}
             <FieldOverlay
