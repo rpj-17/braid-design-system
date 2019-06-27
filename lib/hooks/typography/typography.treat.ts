@@ -138,11 +138,11 @@ const textColorForBackground = (
       : theme.color.foreground.white,
   }));
 
-type ForegroundColor = keyof typeof tone;
-type BackgroundColor = NonNullable<UseBoxProps['backgroundColor']>;
+type Foreground = keyof typeof tone;
+type Background = NonNullable<UseBoxProps['background']>;
 type BackgroundContrast = {
-  [background in BackgroundColor]?: {
-    [foreground in ForegroundColor | 'default']?: ClassRef
+  [background in Background]?: {
+    [foreground in Foreground | 'default']?: ClassRef
   }
 };
 export const backgroundContrast: BackgroundContrast = {

@@ -14,7 +14,7 @@ const docs: ComponentDocs = {
       label: `"${space}" spacing`,
       render: () => (
         <Box
-          backgroundColor="formAccent"
+          background="formAccent"
           style={{ overflow: 'auto', maxWidth: '300px' }}
         >
           <Box
