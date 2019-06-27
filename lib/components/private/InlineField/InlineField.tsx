@@ -108,7 +108,7 @@ export const InlineField = forwardRef<HTMLElement, InternalInlineFieldProps>(
             />
             {isCheckbox ? (
               <Box transition="fast" width="full" className={styles.icon}>
-                <TickIcon size="fill" fill="white" />
+                <TickIcon size="fill" tone="white" />
               </Box>
             ) : null}
             <FieldOverlay
@@ -130,7 +130,7 @@ export const InlineField = forwardRef<HTMLElement, InternalInlineFieldProps>(
             <Text
               baseline={false}
               weight={checked ? 'strong' : undefined}
-              color={disabled ? 'secondary' : undefined}
+              tone={disabled ? 'secondary' : undefined}
             >
               {label}
             </Text>

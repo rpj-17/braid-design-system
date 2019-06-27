@@ -100,7 +100,7 @@ export const heading = {
   ),
 };
 
-export const color = styleMap(theme => {
+export const tone = styleMap(theme => {
   const { linkHover, link, ...foreground } = theme.color.foreground;
 
   return {
@@ -138,7 +138,7 @@ const textColorForBackground = (
       : theme.color.foreground.white,
   }));
 
-type ForegroundColor = keyof typeof color;
+type ForegroundColor = keyof typeof tone;
 type BackgroundColor = NonNullable<UseBoxProps['backgroundColor']>;
 type BackgroundContrast = {
   [background in BackgroundColor]?: {

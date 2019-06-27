@@ -6,7 +6,7 @@ const positive = 'green';
 const info = 'navy';
 const brandAccent = 'DarkOrange';
 const focus = 'DeepSkyBlue';
-const black = '#2b2b2b';
+const black = '#333';
 const white = '#fff';
 const link = '#4c77bb';
 
