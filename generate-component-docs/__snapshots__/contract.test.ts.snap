@@ -549,6 +549,7 @@ exports[`Box 1`] = `
   low?: number
   manifest?: string
   margin?: ResponsiveProp<
+    | "gutter"
     | "large"
     | "medium"
     | "none"
@@ -559,6 +560,7 @@ exports[`Box 1`] = `
     | "xxsmall"
   >
   marginBottom?: ResponsiveProp<
+    | "gutter"
     | "large"
     | "medium"
     | "none"
@@ -592,6 +594,7 @@ exports[`Box 1`] = `
     | "xxsmall"
   >
   marginTop?: ResponsiveProp<
+    | "gutter"
     | "large"
     | "medium"
     | "none"
@@ -614,6 +617,7 @@ exports[`Box 1`] = `
     | "xxsmall"
   >
   marginY?: ResponsiveProp<
+    | "gutter"
     | "large"
     | "medium"
     | "none"
@@ -802,6 +806,7 @@ exports[`Box 1`] = `
   open?: boolean
   optimum?: number
   padding?: ResponsiveProp<
+    | "gutter"
     | "large"
     | "medium"
     | "none"
@@ -812,6 +817,7 @@ exports[`Box 1`] = `
     | "xxsmall"
   >
   paddingBottom?: ResponsiveProp<
+    | "gutter"
     | "large"
     | "medium"
     | "none"
@@ -844,6 +850,7 @@ exports[`Box 1`] = `
     | "xxsmall"
   >
   paddingTop?: ResponsiveProp<
+    | "gutter"
     | "large"
     | "medium"
     | "none"
@@ -865,6 +872,7 @@ exports[`Box 1`] = `
     | "xxsmall"
   >
   paddingY?: ResponsiveProp<
+    | "gutter"
     | "large"
     | "medium"
     | "none"
@@ -986,6 +994,7 @@ exports[`BulletList 1`] = `
     | "standard"
     | "xsmall"
   space?: 
+    | "gutter"
     | "large"
     | "medium"
     | "none"
@@ -1014,6 +1023,26 @@ exports[`Button 1`] = `
 exports[`Card 1`] = `
 {
   children?: ReactNode
+  gutter?: 
+    | "gutter"
+    | "large"
+    | "medium"
+    | "none"
+    | "small"
+    | "xlarge"
+    | "xsmall"
+    | "xxlarge"
+    | "xxsmall"
+  space?: 
+    | "gutter"
+    | "large"
+    | "medium"
+    | "none"
+    | "small"
+    | "xlarge"
+    | "xsmall"
+    | "xxlarge"
+    | "xxsmall"
 }
 `;
 
@@ -1045,6 +1074,16 @@ exports[`Checkbox 1`] = `
 exports[`Column 1`] = `
 {
   children: ReactNode
+  space?: 
+    | "gutter"
+    | "large"
+    | "medium"
+    | "none"
+    | "small"
+    | "xlarge"
+    | "xsmall"
+    | "xxlarge"
+    | "xxsmall"
   width?: 
     | "1/2"
     | "1/3"
@@ -1081,6 +1120,16 @@ exports[`Columns 1`] = `
 
 exports[`Divider 1`] = `
 {
+  space?: 
+    | "gutter"
+    | "large"
+    | "medium"
+    | "none"
+    | "small"
+    | "xlarge"
+    | "xsmall"
+    | "xxlarge"
+    | "xxsmall"
 }
 `;
 
@@ -1548,6 +1597,23 @@ exports[`Secondary 1`] = `
 {
   children: ReactNode
   id?: string
+}
+`;
+
+exports[`Stack 1`] = `
+{
+  children: ReactNode
+  divider?: boolean
+  space?: 
+    | "gutter"
+    | "large"
+    | "medium"
+    | "none"
+    | "small"
+    | "xlarge"
+    | "xsmall"
+    | "xxlarge"
+    | "xxsmall"
 }
 `;
 

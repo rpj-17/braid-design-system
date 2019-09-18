@@ -1,10 +1,59 @@
 import mapValues from 'lodash/mapValues';
 import { style, styleMap, ClassRef } from 'sku/treat';
 import { Theme } from 'treat/theme';
-import basekick from 'basekick';
 import { getAccessibleVariant, isLight, mapToStyleProperty } from '../../utils';
 import { Breakpoint } from '../../themes/makeTreatTheme';
 import { UseBoxProps } from '../useBox';
+
+interface BaseKickOptions {
+  typeSizeModifier: number;
+  baseFontSize: number;
+  descenderHeightScale: number;
+  capHeight: number;
+  typeRowSpan: number;
+  gridRowHeight: number;
+}
+const basekick = ({
+  typeSizeModifier,
+  baseFontSize,
+  descenderHeightScale,
+  typeRowSpan,
+  gridRowHeight,
+  capHeight,
+}: BaseKickOptions) => {
+  const fontSize = typeSizeModifier * baseFontSize;
+
+  const calculateTypeOffset = (lh: number) => {
+    const lineHeightScale = lh / fontSize;
+    return (lineHeightScale - 1) / 2 + descenderHeightScale;
+  };
+
+  const lineHeight = typeRowSpan * gridRowHeight;
+  const typeOffset = calculateTypeOffset(lineHeight);
+
+  const topSpace = lineHeight - capHeight * fontSize;
+  const heightCorrection =
+    topSpace > gridRowHeight ? topSpace - (topSpace % gridRowHeight) : 0;
+
+  const preventCollapse = 1;
+
+  return {
+    fontSize: {
+      fontSize: `${fontSize}px`,
+      lineHeight: `${lineHeight}px`,
+    },
+    transform: {
+      transform: `translateY(${typeOffset}em)`,
+      paddingTop: preventCollapse,
+      ':before': {
+        content: "''",
+        marginTop: -(heightCorrection + preventCollapse),
+        display: 'block',
+        height: 0,
+      },
+    },
+  };
+};
 
 export const fontFamily = style(({ typography }) => ({
   fontFamily: typography.fontFamily,
@@ -30,6 +79,7 @@ const alignTextToGrid = (
     typeRowSpan: textDefinition.rows,
     gridRowHeight,
     descenderHeightScale,
+    capHeight: 0.6990434142752023,
   });
 
 const makeTypographyRules = (
@@ -38,35 +88,19 @@ const makeTypographyRules = (
 ) => {
   const mobile = alignTextToGrid(
     textDefinition.mobile,
-    grid.row,
+    grid,
     typography.descenderHeightScale,
   );
 
   const desktop = alignTextToGrid(
     textDefinition.desktop,
-    grid.row,
+    grid,
     typography.descenderHeightScale,
   );
 
   return {
-    fontSize: utils.responsiveStyles(
-      {
-        fontSize: mobile.fontSize,
-        lineHeight: mobile.lineHeight,
-      },
-      {
-        fontSize: desktop.fontSize,
-        lineHeight: desktop.lineHeight,
-      },
-    ),
-    transform: utils.responsiveStyles(
-      {
-        transform: mobile.transform,
-      },
-      {
-        transform: desktop.transform,
-      },
-    ),
+    fontSize: utils.responsiveStyles(mobile.fontSize, desktop.fontSize),
+    transform: utils.responsiveStyles(mobile.transform, desktop.transform),
   };
 };
 
@@ -227,15 +261,15 @@ const makeTouchableSpacing = (touchableHeight: number, textHeight: number) => {
   };
 };
 
-export const touchable = styleMap(({ typography, spacing, utils }) =>
+export const touchable = styleMap(({ typography, touchableSpace, utils }) =>
   mapValues(typography.text, textDefinition =>
     utils.responsiveStyles(
       makeTouchableSpacing(
-        utils.rows(spacing.touchableRows),
+        utils.rows(touchableSpace),
         utils.rows(textDefinition.mobile.rows),
       ),
       makeTouchableSpacing(
-        utils.rows(spacing.touchableRows),
+        utils.rows(touchableSpace),
         utils.rows(textDefinition.desktop.rows),
       ),
     ),

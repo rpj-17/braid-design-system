@@ -14,7 +14,7 @@ export default (tokens: TreatTokens) => {
     ...(isEqual(mobile, desktop) ? {} : desktopStyles(desktop)),
   });
 
-  const rows = (x: number) => x * tokens.grid.row;
+  const rows = (x: number) => x * tokens.grid;
 
   return { desktopStyles, responsiveStyles, rows };
 };

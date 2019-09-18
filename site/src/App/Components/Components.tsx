@@ -8,7 +8,7 @@ import * as styles from './Components.treat';
 import { MenuButton } from '../MenuButton/MenuButton';
 import { ConfigConsumer } from '../ConfigContext';
 
-const { Text, Box, BulletList, Bullet, Hidden } = components;
+const { Text, Box, Hidden, Stack } = components;
 
 export const Components = withRouter(({ location }: RouteComponentProps) => {
   const [isMenuOpen, setMenuOpen] = useState(
@@ -52,14 +52,13 @@ export const Components = withRouter(({ location }: RouteComponentProps) => {
             <Hidden print>
               <Box position="fixed" className={styles.menu}>
                 <Box paddingBottom="xlarge" paddingX="gutter">
-                  <Box paddingBottom="small">
+                  <Stack space="large">
                     <Text size="large" weight="strong">
                       Tools
                     </Text>
-                  </Box>
-                  <Box paddingBottom="small">
-                    <BulletList>
-                      <Bullet>
+
+                    <Stack>
+                      <Text>
                         <ExternalLink
                           href="https://github.com/seek-oss/braid-design-system"
                           rel="noopener noreferrer"
@@ -67,61 +66,60 @@ export const Components = withRouter(({ location }: RouteComponentProps) => {
                         >
                           Source
                         </ExternalLink>
-                      </Bullet>
-                      <Bullet>
+                      </Text>
+                      <Text>
                         <ExternalLink
                           href={playroomUrl}
                           onClick={() => setMenuOpen(isComponentsHome)}
                         >
                           Playroom
                         </ExternalLink>
-                      </Bullet>
-                    </BulletList>
-                  </Box>
-                  <Box paddingBottom="small">
+                      </Text>
+                    </Stack>
+
                     <Text size="large" weight="strong">
                       Components
                     </Text>
-                  </Box>
-                  <Box paddingBottom="small">
-                    <BulletList>
+
+                    <Stack>
                       {Object.keys(components)
                         .filter(x => !/icon/i.test(x) && !/^use/.test(x))
                         .sort()
                         .map(componentName => (
-                          <Bullet key={componentName}>
+                          <Text key={componentName}>
                             <Link
                               to={`/components/${componentName}`}
                               onClick={() => setMenuOpen(false)}
                             >
                               {componentName}
                             </Link>
-                          </Bullet>
+                          </Text>
                         ))}
-                    </BulletList>
-                  </Box>
-                  <Box paddingBottom="small">
+                    </Stack>
+
                     <Text size="large" weight="strong">
                       Icons
                     </Text>
-                  </Box>
-                  <BulletList>
-                    {Object.keys(components)
-                      .filter(
-                        x => /icon/i.test(x) && x !== 'Icon' && !/^use/.test(x),
-                      )
-                      .sort()
-                      .map(iconName => (
-                        <Bullet key={iconName}>
-                          <Link
-                            to={`/icons/${iconName}`}
-                            onClick={() => setMenuOpen(false)}
-                          >
-                            {iconName}
-                          </Link>
-                        </Bullet>
-                      ))}
-                  </BulletList>
+
+                    <Stack>
+                      {Object.keys(components)
+                        .filter(
+                          x =>
+                            /icon/i.test(x) && x !== 'Icon' && !/^use/.test(x),
+                        )
+                        .sort()
+                        .map(iconName => (
+                          <Text key={iconName}>
+                            <Link
+                              to={`/icons/${iconName}`}
+                              onClick={() => setMenuOpen(false)}
+                            >
+                              {iconName}
+                            </Link>
+                          </Text>
+                        ))}
+                    </Stack>
+                  </Stack>
                 </Box>
               </Box>
             </Hidden>

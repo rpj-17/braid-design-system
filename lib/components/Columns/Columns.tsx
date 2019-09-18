@@ -3,16 +3,17 @@ import classnames from 'classnames';
 import { useStyles } from 'sku/treat';
 import { Box } from '../Box/Box';
 import { ColumnProps } from '../Column/Column';
-import { SpaceX } from '../../hooks/useBox';
+import { Theme } from 'treat/theme';
 import * as styleRefs from './Columns.treat';
 
 const defaultCollapse = false;
 const defaultReverse = false;
 const defaultGutter = 'gutter';
 
+type Gutter = keyof Theme['space'] | 'none';
 interface ColumnsContext {
   collapse: boolean;
-  gutter: SpaceX;
+  gutter: Gutter;
 }
 export const ColumnsContext = createContext<ColumnsContext>({
   collapse: defaultCollapse,
@@ -23,7 +24,7 @@ export interface ColumnsProps {
   children: Array<ReactElement<ColumnProps>> | ReactElement<ColumnProps>;
   collapse?: boolean;
   reverse?: boolean;
-  gutter?: SpaceX;
+  gutter?: Gutter;
 }
 
 export const Columns = ({

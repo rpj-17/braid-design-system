@@ -72,14 +72,11 @@ export default ({ children }: CodeProps) => {
         position="relative"
         paddingLeft="small"
         paddingRight="large"
-        paddingTop="xxsmall"
-        paddingBottom="small"
+        paddingY="small"
         borderRadius="standard"
         className={styles.code}
       >
-        <Fragment>
-          <Text component="pre">{children}</Text>
-        </Fragment>
+        <Text component="pre">{children}</Text>
       </Box>
       <Box
         display="flex"

@@ -23,18 +23,6 @@ export interface HeadingProps {
   id?: string;
 }
 
-const resolvePaddingForLevel = (level: HeadingLevel) => {
-  if (level === '1') {
-    return 'small';
-  }
-
-  if (level === '4') {
-    return 'xxsmall';
-  }
-
-  return 'xsmall';
-};
-
 export const Heading = ({
   level,
   weight,
@@ -46,7 +34,6 @@ export const Heading = ({
     <Box
       id={id}
       component={component || resolveDefaultComponent[level]}
-      paddingBottom={resolvePaddingForLevel(level)}
       className={useHeading({ weight, level, baseline: true })}
     >
       {children}
