@@ -74,7 +74,7 @@ export const Field = forwardRef<FieldRef, InternalFieldProps>(
       children,
       message,
       secondaryMessage,
-      reserveMessageSpace,
+      reserveMessageSpace = true,
       tone,
       'aria-describedby': ariaDescribedBy,
       data,
@@ -94,14 +94,16 @@ export const Field = forwardRef<FieldRef, InternalFieldProps>(
 
     return (
       <Box>
-        <FieldLabel
-          id={labelId}
-          htmlFor={id}
-          label={label}
-          secondaryLabel={secondaryLabel}
-          tertiaryLabel={tertiaryLabel}
-          description={description}
-        />
+        <Box paddingBottom="xsmall">
+          <FieldLabel
+            id={labelId}
+            htmlFor={id}
+            label={label}
+            secondaryLabel={secondaryLabel}
+            tertiaryLabel={tertiaryLabel}
+            description={description}
+          />
+        </Box>
         <Box position="relative">
           <BackgroundProvider value={background}>
             {children(
@@ -137,14 +139,18 @@ export const Field = forwardRef<FieldRef, InternalFieldProps>(
             )}
           </BackgroundProvider>
         </Box>
-        <FieldMessage
-          id={messageId}
-          tone={tone}
-          disabled={disabled}
-          message={message}
-          secondaryMessage={secondaryMessage}
-          reserveMessageSpace={reserveMessageSpace}
-        />
+        {message || reserveMessageSpace ? (
+          <Box paddingTop="xxsmall">
+            <FieldMessage
+              id={messageId}
+              tone={tone}
+              disabled={disabled}
+              message={message}
+              secondaryMessage={secondaryMessage}
+              reserveMessageSpace={reserveMessageSpace}
+            />
+          </Box>
+        ) : null}
       </Box>
     );
   },

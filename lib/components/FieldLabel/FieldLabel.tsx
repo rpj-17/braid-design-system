@@ -33,7 +33,7 @@ export const FieldLabel = ({
   );
 
   return (
-    <Box paddingBottom="xsmall">
+    <Box>
       <Box component="span" display="flex" justifyContent="spaceBetween">
         {htmlFor === false ? (
           labelEl
