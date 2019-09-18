@@ -29,7 +29,7 @@ const menuBase = style({
 });
 const menuHeight = style(({ utils, touchableSpace, space }) => {
   const calcMenuHeight = (numSuggestions: number) =>
-    utils.rows(touchableSpace * numSuggestions + space.xxsmall);
+    utils.grid(touchableSpace * numSuggestions + space.xxsmall);
 
   return {
     maxHeight: calcMenuHeight(6),

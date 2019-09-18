@@ -16,8 +16,8 @@ const makeSizeRules = (x: number) => ({ width: x, height: x });
 export const blockSizes = styleMap(({ utils, typography }) =>
   mapValues(typography.text, ({ mobile, desktop }) =>
     utils.responsiveStyles(
-      makeSizeRules(utils.rows(mobile.rows)),
-      makeSizeRules(utils.rows(desktop.rows)),
+      makeSizeRules(utils.grid(mobile.rows)),
+      makeSizeRules(utils.grid(desktop.rows)),
     ),
   ),
 );

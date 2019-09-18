@@ -22,7 +22,7 @@ const fakeFieldSize = style(theme => {
   return {
     height: size,
     width: size,
-    marginTop: (utils.rows(touchableSpace) - size) / 2,
+    marginTop: (utils.grid(touchableSpace) - size) / 2,
   };
 });
 

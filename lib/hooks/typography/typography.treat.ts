@@ -265,12 +265,12 @@ export const touchable = styleMap(({ typography, touchableSpace, utils }) =>
   mapValues(typography.text, textDefinition =>
     utils.responsiveStyles(
       makeTouchableSpacing(
-        utils.rows(touchableSpace),
-        utils.rows(textDefinition.mobile.rows),
+        utils.grid(touchableSpace),
+        utils.grid(textDefinition.mobile.rows),
       ),
       makeTouchableSpacing(
-        utils.rows(touchableSpace),
-        utils.rows(textDefinition.desktop.rows),
+        utils.grid(touchableSpace),
+        utils.grid(textDefinition.desktop.rows),
       ),
     ),
   ),

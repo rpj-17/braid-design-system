@@ -5,12 +5,12 @@ export const grow = style({
 });
 
 export const minHeight = style(theme => {
-  const { responsiveStyles, rows } = theme.utils;
+  const { responsiveStyles, grid } = theme.utils;
   const { mobile, desktop } = theme.typography.text.small;
 
   return responsiveStyles(
-    { minHeight: rows(mobile.rows) },
-    { minHeight: rows(desktop.rows) },
+    { minHeight: grid(mobile.rows) },
+    { minHeight: grid(desktop.rows) },
   );
 });
 

@@ -6,5 +6,5 @@ export default ({ touchableSpace, typography, utils }: Theme) => {
   const scale = typography.text.standard.mobile.size / 28;
   const rows = Math.round(touchableSpace * scale);
 
-  return utils.rows(rows);
+  return utils.grid(rows);
 };
