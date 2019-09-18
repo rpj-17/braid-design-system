@@ -13,11 +13,11 @@ export const inline = style({
 
 const makeSizeRules = (x: number) => ({ width: x, height: x });
 
-export const blockSizes = styleMap(({ utils, typography }) =>
+export const blockSizes = styleMap(({ utils, grid, typography }) =>
   mapValues(typography.text, ({ mobile, desktop }) =>
     utils.responsiveStyles(
-      makeSizeRules(utils.grid(mobile.rows)),
-      makeSizeRules(utils.grid(desktop.rows)),
+      makeSizeRules(grid * mobile.rows),
+      makeSizeRules(grid * desktop.rows),
     ),
   ),
 );

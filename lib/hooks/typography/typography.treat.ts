@@ -261,17 +261,18 @@ const makeTouchableSpacing = (touchableHeight: number, textHeight: number) => {
   };
 };
 
-export const touchable = styleMap(({ typography, touchableSpace, utils }) =>
-  mapValues(typography.text, textDefinition =>
-    utils.responsiveStyles(
-      makeTouchableSpacing(
-        utils.grid(touchableSpace),
-        utils.grid(textDefinition.mobile.rows),
-      ),
-      makeTouchableSpacing(
-        utils.grid(touchableSpace),
-        utils.grid(textDefinition.desktop.rows),
+export const touchable = styleMap(
+  ({ grid, typography, touchableSpace, utils }) =>
+    mapValues(typography.text, textDefinition =>
+      utils.responsiveStyles(
+        makeTouchableSpacing(
+          grid * touchableSpace,
+          grid * textDefinition.mobile.rows,
+        ),
+        makeTouchableSpacing(
+          grid * touchableSpace,
+          grid * textDefinition.desktop.rows,
+        ),
       ),
     ),
-  ),
 );

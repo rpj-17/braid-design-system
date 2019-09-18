@@ -1,6 +1,6 @@
 import { style } from 'sku/treat';
 
-export const field = style(({ utils: { grid } }) => ({
+export const field = style(({ grid }) => ({
   resize: 'vertical',
-  minHeight: grid(15),
+  minHeight: grid * 15,
 }));
