@@ -15,6 +15,8 @@ import {
   FieldMessageProps,
 } from '../../FieldMessage/FieldMessage';
 import { FieldOverlay } from '../FieldOverlay/FieldOverlay';
+import { Text } from '../../Text/Text';
+import { Stack } from '../../Stack/Stack';
 import buildDataAttributes, { DataAttributeMap } from '../buildDataAttributes';
 import { useText, useTouchableSpace } from '../../../hooks/typography';
 import * as styleRefs from './Field.treat';
@@ -93,54 +95,52 @@ export const Field = forwardRef<FieldRef, InternalFieldProps>(
     );
 
     return (
-      <Box>
-        <Box paddingBottom="xsmall">
-          <FieldLabel
-            id={labelId}
-            htmlFor={id}
-            label={label}
-            secondaryLabel={secondaryLabel}
-            tertiaryLabel={tertiaryLabel}
-            description={description}
-          />
-        </Box>
-        <Box position="relative">
-          <BackgroundProvider value={background}>
-            {children(
-              overlays,
-              {
-                id,
-                name,
-                background,
-                boxShadow:
-                  tone === 'critical' && !disabled
-                    ? 'borderCritical'
-                    : 'borderStandard',
-                width: 'full',
-                paddingX: 'small',
-                borderRadius: 'standard',
-                ...((message || ariaDescribedBy) && {
-                  'aria-describedby': ariaDescribedBy || messageId,
-                }),
-                disabled,
-                autoComplete,
-                ...buildDataAttributes(data),
-                className: classnames(
-                  styles.field,
-                  useText({
-                    backgroundContext: background,
-                    size: 'standard',
-                    baseline: false,
+      <Stack space="small">
+        <FieldLabel
+          id={labelId}
+          htmlFor={id}
+          label={label}
+          secondaryLabel={secondaryLabel}
+          tertiaryLabel={tertiaryLabel}
+        />
+        {description ? <Text tone="secondary">{description}</Text> : null}
+        <Stack space="xxsmall">
+          <Box position="relative">
+            <BackgroundProvider value={background}>
+              {children(
+                overlays,
+                {
+                  id,
+                  name,
+                  background,
+                  boxShadow:
+                    tone === 'critical' && !disabled
+                      ? 'borderCritical'
+                      : 'borderStandard',
+                  width: 'full',
+                  paddingX: 'small',
+                  borderRadius: 'standard',
+                  ...((message || ariaDescribedBy) && {
+                    'aria-describedby': ariaDescribedBy || messageId,
                   }),
-                  useTouchableSpace('standard'),
-                ),
-              },
-              ref,
-            )}
-          </BackgroundProvider>
-        </Box>
-        {message || reserveMessageSpace ? (
-          <Box paddingTop="xxsmall">
+                  disabled,
+                  autoComplete,
+                  ...buildDataAttributes(data),
+                  className: classnames(
+                    styles.field,
+                    useText({
+                      backgroundContext: background,
+                      size: 'standard',
+                      baseline: false,
+                    }),
+                    useTouchableSpace('standard'),
+                  ),
+                },
+                ref,
+              )}
+            </BackgroundProvider>
+          </Box>
+          {message || reserveMessageSpace ? (
             <FieldMessage
               id={messageId}
               tone={tone}
@@ -149,9 +149,9 @@ export const Field = forwardRef<FieldRef, InternalFieldProps>(
               secondaryMessage={secondaryMessage}
               reserveMessageSpace={reserveMessageSpace}
             />
-          </Box>
-        ) : null}
-      </Box>
+          ) : null}
+        </Stack>
+      </Stack>
     );
   },
 );

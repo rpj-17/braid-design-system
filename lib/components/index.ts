@@ -26,7 +26,7 @@ export { MonthPicker } from './MonthPicker/MonthPicker';
 export { Paragraph } from './Paragraph/Paragraph';
 export { Radio } from './Radio/Radio';
 export { Secondary } from './Secondary/Secondary';
-export { Stack } from './Stack/Stack';
+export { Stack, Container } from './Stack/Stack';
 export { Strong } from './Strong/Strong';
 export { Text } from './Text/Text';
 export { Textarea } from './Textarea/Textarea';

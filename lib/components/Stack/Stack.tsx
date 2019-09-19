@@ -4,12 +4,7 @@ import { useStyles } from 'sku/treat';
 import { Divider } from '../Divider/Divider';
 import useBox, { Space, UseBoxProps } from '../../hooks/useBox';
 import * as styleRefs from './Stack.treat';
-
-export interface StackProps {
-  children: ReactNode;
-  space?: Space;
-  divider?: boolean;
-}
+import { Box } from '../Box/Box';
 
 export interface UseStackProps {
   component: UseBoxProps['component'];
@@ -25,6 +20,11 @@ export const useStackItem = ({ component, space }: UseStackProps) => {
   );
 };
 
+export interface StackProps {
+  children: ReactNode;
+  space?: Space;
+  divider?: boolean;
+}
 export const Stack = ({
   children,
   space = 'gutter',
@@ -56,4 +56,43 @@ export const Stack = ({
   return createElement('div', {
     children: stackChildren,
   });
+};
+
+export interface ContainerProps {
+  children: ReactNode;
+  space?: Space;
+  gutter?: Space;
+  divider?: boolean;
+}
+export const Container = ({
+  children,
+  space,
+  gutter = 'gutter',
+  divider = false,
+}: ContainerProps) => {
+  const verticalSpace = space || gutter;
+  const itemComponent = 'div';
+  const stackClasses = useStackItem({
+    component: itemComponent,
+    space: verticalSpace,
+  });
+  const stackItems = Children.toArray(children);
+
+  const stackChildren = stackItems.map((child, index) =>
+    createElement(itemComponent, {
+      className: divider ? undefined : stackClasses,
+      children: [
+        child,
+        divider && index !== stackItems.length - 1 ? (
+          <Divider space={verticalSpace} />
+        ) : null,
+      ],
+    }),
+  );
+
+  return (
+    <Box paddingY={verticalSpace} paddingX={gutter}>
+      {stackChildren}
+    </Box>
+  );
 };

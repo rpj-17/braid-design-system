@@ -33,22 +33,15 @@ export const FieldLabel = ({
   );
 
   return (
-    <Box>
-      <Box component="span" display="flex" justifyContent="spaceBetween">
-        {htmlFor === false ? (
-          labelEl
-        ) : (
-          <label id={id} htmlFor={htmlFor}>
-            {labelEl}
-          </label>
-        )}
-        {tertiaryLabel ? <Text>&nbsp;{tertiaryLabel}</Text> : null}
-      </Box>
-      {description ? (
-        <Box paddingY="xxsmall">
-          <Text tone="secondary">{description}</Text>
-        </Box>
-      ) : null}
+    <Box component="span" display="flex" justifyContent="spaceBetween">
+      {htmlFor === false ? (
+        labelEl
+      ) : (
+        <label id={id} htmlFor={htmlFor}>
+          {labelEl}
+        </label>
+      )}
+      {tertiaryLabel ? <Text>&nbsp;{tertiaryLabel}</Text> : null}
     </Box>
   );
 };
