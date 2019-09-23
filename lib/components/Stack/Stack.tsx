@@ -6,9 +6,10 @@ import useBox, { Space, UseBoxProps } from '../../hooks/useBox';
 import * as styleRefs from './Stack.treat';
 import { Box } from '../Box/Box';
 
+type ResponsiveSpace = Space | [Space, Space];
 export interface UseStackProps {
   component: UseBoxProps['component'];
-  space: Space | undefined;
+  space: ResponsiveSpace | undefined;
 }
 
 export const useStackItem = ({ component, space }: UseStackProps) => {
@@ -22,7 +23,7 @@ export const useStackItem = ({ component, space }: UseStackProps) => {
 
 export interface StackProps {
   children: ReactNode;
-  space?: Space;
+  space?: ResponsiveSpace;
   divider?: boolean;
 }
 export const Stack = ({
@@ -60,8 +61,8 @@ export const Stack = ({
 
 export interface ContainerProps {
   children: ReactNode;
-  space?: Space;
-  gutter?: Space;
+  space?: ResponsiveSpace;
+  gutter?: ResponsiveSpace;
   divider?: boolean;
 }
 export const Container = ({

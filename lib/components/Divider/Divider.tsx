@@ -4,8 +4,9 @@ import { Box } from '../Box/Box';
 import * as styleRefs from './Divider.treat';
 import { Space } from '../../hooks/useBox';
 
+type ResponsiveSpace = Space | [Space, Space];
 interface DividerProps {
-  space?: Space;
+  space?: ResponsiveSpace;
 }
 
 export const Divider = ({ space }: DividerProps) => {

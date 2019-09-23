@@ -993,7 +993,7 @@ exports[`BulletList 1`] = `
     | "small"
     | "standard"
     | "xsmall"
-  space?: 
+  space?: ResponsiveProp<
     | "gutter"
     | "large"
     | "medium"
@@ -1003,6 +1003,7 @@ exports[`BulletList 1`] = `
     | "xsmall"
     | "xxlarge"
     | "xxsmall"
+  >
 }
 `;
 
@@ -1024,7 +1025,8 @@ exports[`Button 1`] = `
 exports[`Card 1`] = `
 {
   children?: ReactNode
-  gutter?: 
+  divider?: boolean
+  gutter?: ResponsiveProp<
     | "gutter"
     | "large"
     | "medium"
@@ -1034,7 +1036,8 @@ exports[`Card 1`] = `
     | "xsmall"
     | "xxlarge"
     | "xxsmall"
-  space?: 
+  >
+  space?: ResponsiveProp<
     | "gutter"
     | "large"
     | "medium"
@@ -1044,6 +1047,7 @@ exports[`Card 1`] = `
     | "xsmall"
     | "xxlarge"
     | "xxsmall"
+  >
 }
 `;
 
@@ -1075,7 +1079,7 @@ exports[`Checkbox 1`] = `
 exports[`Column 1`] = `
 {
   children: ReactNode
-  space?: 
+  space?: ResponsiveProp<
     | "gutter"
     | "large"
     | "medium"
@@ -1085,6 +1089,7 @@ exports[`Column 1`] = `
     | "xsmall"
     | "xxlarge"
     | "xxsmall"
+  >
   width?: 
     | "1/2"
     | "1/3"
@@ -1119,9 +1124,11 @@ exports[`Columns 1`] = `
 }
 `;
 
-exports[`Divider 1`] = `
+exports[`Container 1`] = `
 {
-  space?: 
+  children: ReactNode
+  divider?: boolean
+  gutter?: ResponsiveProp<
     | "gutter"
     | "large"
     | "medium"
@@ -1131,6 +1138,34 @@ exports[`Divider 1`] = `
     | "xsmall"
     | "xxlarge"
     | "xxsmall"
+  >
+  space?: ResponsiveProp<
+    | "gutter"
+    | "large"
+    | "medium"
+    | "none"
+    | "small"
+    | "xlarge"
+    | "xsmall"
+    | "xxlarge"
+    | "xxsmall"
+  >
+}
+`;
+
+exports[`Divider 1`] = `
+{
+  space?: ResponsiveProp<
+    | "gutter"
+    | "large"
+    | "medium"
+    | "none"
+    | "small"
+    | "xlarge"
+    | "xsmall"
+    | "xxlarge"
+    | "xxsmall"
+  >
 }
 `;
 
@@ -1605,7 +1640,7 @@ exports[`Stack 1`] = `
 {
   children: ReactNode
   divider?: boolean
-  space?: 
+  space?: ResponsiveProp<
     | "gutter"
     | "large"
     | "medium"
@@ -1615,6 +1650,7 @@ exports[`Stack 1`] = `
     | "xsmall"
     | "xxlarge"
     | "xxsmall"
+  >
 }
 `;
 
