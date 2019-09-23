@@ -12,6 +12,8 @@ export default makeTokens({
     typography: {
       fontFamily:
         '"Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif',
+      descenderHeightScale: 0.18077204427010427,
+      capHeightScale: 0.7138671875,
       text: {
         xsmall: {
           mobile: {

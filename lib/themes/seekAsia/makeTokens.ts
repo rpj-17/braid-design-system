@@ -40,7 +40,8 @@ export default ({
     typography: {
       fontFamily:
         'Muli, -apple-system, system-ui, "Segoe UI", Roboto, "Noto Sans", Ubuntu, "Droid Sans", "Helvetica Neue", Arial, sans-serif',
-      descenderHeightScale: 0.13,
+      descenderHeightScale: 0.15872763924382155,
+      capHeightScale: 0.712,
       fontWeight: {
         regular: 400,
         medium: 600,

@@ -18,7 +18,8 @@ const tokens: TreatTokens = {
   typography: {
     fontFamily:
       'Roboto, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif',
-    descenderHeightScale: 0.16,
+    descenderHeightScale: 0.17777777777777778,
+    capHeightScale: 0.7109375,
     fontWeight: {
       regular: 400,
       medium: 500,

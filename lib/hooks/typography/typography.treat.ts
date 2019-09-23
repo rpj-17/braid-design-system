@@ -72,6 +72,7 @@ const alignTextToGrid = (
   textDefinition: TextDefinition,
   gridRowHeight: number,
   descenderHeightScale: number,
+  capHeight: number,
 ) =>
   basekick({
     baseFontSize: 1,
@@ -79,23 +80,25 @@ const alignTextToGrid = (
     typeRowSpan: textDefinition.rows,
     gridRowHeight,
     descenderHeightScale,
-    capHeight: 0.6990434142752023,
+    capHeight,
   });
 
 const makeTypographyRules = (
   textDefinition: Record<Breakpoint, TextDefinition>,
-  { grid, typography, utils }: Theme,
+  { name, grid, typography, utils }: Theme,
 ) => {
   const mobile = alignTextToGrid(
     textDefinition.mobile,
     grid,
     typography.descenderHeightScale,
+    typography.capHeightScale,
   );
 
   const desktop = alignTextToGrid(
     textDefinition.desktop,
     grid,
     typography.descenderHeightScale,
+    typography.capHeightScale,
   );
 
   return {
@@ -201,8 +204,8 @@ type Foreground = keyof typeof tone;
 type BoxBackground = NonNullable<UseBoxProps['background']>;
 type BackgroundContrast = {
   [background in BoxBackground]?: {
-    [foreground in Foreground | 'default']?: ClassRef;
-  };
+    [foreground in Foreground | 'default']?: ClassRef
+  }
 };
 export const backgroundContrast: BackgroundContrast = {
   criticalLight: {

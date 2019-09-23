@@ -16,7 +16,8 @@ const tokens: TreatTokens = {
   name: 'wireframe',
   typography: {
     fontFamily: 'Courier, monospace',
-    descenderHeightScale: 0.16,
+    descenderHeightScale: 0.19,
+    capHeightScale: 0.502,
     fontWeight: {
       regular: 400,
       medium: 500,
@@ -31,41 +32,41 @@ const tokens: TreatTokens = {
         '1': {
           mobile: {
             size: 28,
-            rows: 6,
+            rows: 9,
           },
           desktop: {
             size: 42,
-            rows: 8,
+            rows: 11,
           },
         },
         '2': {
           mobile: {
             size: 21,
-            rows: 5,
+            rows: 8,
           },
           desktop: {
             size: 28,
-            rows: 6,
+            rows: 9,
           },
         },
         '3': {
           mobile: {
             size: 21,
-            rows: 5,
+            rows: 7,
           },
           desktop: {
             size: 21,
-            rows: 5,
+            rows: 7,
           },
         },
         '4': {
           mobile: {
             size: 18,
-            rows: 4,
+            rows: 7,
           },
           desktop: {
             size: 18,
-            rows: 4,
+            rows: 7,
           },
         },
       },
@@ -74,48 +75,48 @@ const tokens: TreatTokens = {
       xsmall: {
         mobile: {
           size: 12,
-          rows: 3,
+          rows: 5,
         },
         desktop: {
           size: 12,
-          rows: 3,
+          rows: 5,
         },
       },
       small: {
         mobile: {
           size: 14,
-          rows: 3,
+          rows: 5,
         },
         desktop: {
           size: 14,
-          rows: 3,
+          rows: 5,
         },
       },
       standard: {
         mobile: {
           size: 16,
-          rows: 4,
+          rows: 6,
         },
         desktop: {
           size: 16,
-          rows: 4,
+          rows: 6,
         },
       },
       large: {
         mobile: {
           size: 18,
-          rows: 4,
+          rows: 7,
         },
         desktop: {
           size: 18,
-          rows: 4,
+          rows: 7,
         },
       },
     },
   },
   responsiveBreakpoint: 768,
-  grid: 6,
-  touchableSpace: 8,
+  grid: 4,
+  touchableSpace: 12,
   space: {
     gutter: 5,
     xxsmall: 1,
