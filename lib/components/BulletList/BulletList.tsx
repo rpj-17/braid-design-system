@@ -1,15 +1,15 @@
 import React, { ReactNode, createContext, useMemo } from 'react';
 import { Box } from '../Box/Box';
 import { UseTextProps } from '../../hooks/typography';
-import { UseStackProps } from '../Stack/Stack';
+import { UseStackItemProps } from '../Stack/Stack';
 
 const defaultSize = 'standard';
 const defaultSpace = 'medium';
-interface BulletListContext {
+interface BulletListContextValue {
   size: UseTextProps['size'];
-  space: UseStackProps['space'];
+  space: UseStackItemProps['space'];
 }
-export const BulletListContext = createContext<BulletListContext>({
+export const BulletListContext = createContext<BulletListContextValue>({
   size: defaultSize,
   space: defaultSpace,
 });
@@ -17,7 +17,7 @@ export const BulletListContext = createContext<BulletListContext>({
 export interface BulletListProps {
   children: ReactNode;
   size?: UseTextProps['size'];
-  space?: UseStackProps['space'];
+  space?: UseStackItemProps['space'];
 }
 
 export const BulletList = ({
@@ -25,7 +25,7 @@ export const BulletList = ({
   size = defaultSize,
   space = defaultSpace,
 }: BulletListProps) => {
-  const bulletListContextValues = useMemo(
+  const bulletListContextValue = useMemo(
     () => ({
       size,
       space,
@@ -33,7 +33,7 @@ export const BulletList = ({
     [size, space],
   );
   return (
-    <BulletListContext.Provider value={bulletListContextValues}>
+    <BulletListContext.Provider value={bulletListContextValue}>
       <Box component="ul">{children}</Box>
     </BulletListContext.Provider>
   );

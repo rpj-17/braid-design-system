@@ -70,13 +70,14 @@ export default ({ children }: CodeProps) => {
       <Box
         background="brandAccent"
         position="relative"
-        paddingLeft="small"
-        paddingRight="large"
-        paddingY="small"
+        paddingX="small"
+        paddingY="xsmall"
         borderRadius="standard"
         className={styles.code}
       >
-        <Text component="pre">{children}</Text>
+        <Text component="pre" baseline={false}>
+          {children}
+        </Text>
       </Box>
       <Box
         display="flex"

@@ -83,7 +83,12 @@ export const Components = withRouter(({ location }: RouteComponentProps) => {
 
                     <Stack>
                       {Object.keys(components)
-                        .filter(x => !/icon/i.test(x) && !/^use/.test(x))
+                        .filter(
+                          x =>
+                            !/icon/i.test(x) &&
+                            !/^use/.test(x) &&
+                            x !== 'BoxRenderer',
+                        )
                         .sort()
                         .map(componentName => (
                           <Text key={componentName}>

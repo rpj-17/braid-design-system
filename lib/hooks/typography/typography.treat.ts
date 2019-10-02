@@ -3,7 +3,7 @@ import { style, styleMap, ClassRef } from 'sku/treat';
 import { Theme } from 'treat/theme';
 import { getAccessibleVariant, isLight, mapToStyleProperty } from '../../utils';
 import { Breakpoint } from '../../themes/makeTreatTheme';
-import { UseBoxProps } from '../useBox';
+import { UseBoxStylesProps } from '../../components/Box/useBoxStyles';
 
 interface BaseKickOptions {
   typeSizeModifier: number;
@@ -201,11 +201,11 @@ const textColorForBackground = (
 };
 
 type Foreground = keyof typeof tone;
-type BoxBackground = NonNullable<UseBoxProps['background']>;
+type BoxBackground = NonNullable<UseBoxStylesProps['background']>;
 type BackgroundContrast = {
   [background in BoxBackground]?: {
-    [foreground in Foreground | 'default']?: ClassRef
-  }
+    [foreground in Foreground | 'default']?: ClassRef;
+  };
 };
 export const backgroundContrast: BackgroundContrast = {
   criticalLight: {
@@ -265,15 +265,15 @@ const makeTouchableSpacing = (touchableHeight: number, textHeight: number) => {
 };
 
 export const touchable = styleMap(
-  ({ grid, typography, touchableSpace, utils }) =>
+  ({ grid, typography, touchableSize, utils }) =>
     mapValues(typography.text, textDefinition =>
       utils.responsiveStyles(
         makeTouchableSpacing(
-          grid * touchableSpace,
+          grid * touchableSize,
           grid * textDefinition.mobile.rows,
         ),
         makeTouchableSpacing(
-          grid * touchableSpace,
+          grid * touchableSize,
           grid * textDefinition.desktop.rows,
         ),
       ),

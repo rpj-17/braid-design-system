@@ -2,21 +2,21 @@ import React, { ReactNode, Children, Fragment, createElement } from 'react';
 import classnames from 'classnames';
 import { useStyles } from 'sku/treat';
 import { Divider } from '../Divider/Divider';
-import useBox, { Space, UseBoxProps } from '../../hooks/useBox';
+import { useBoxStyles, UseBoxStylesProps, Space } from '../Box/useBoxStyles';
 import * as styleRefs from './Stack.treat';
 import { Box } from '../Box/Box';
 
 type ResponsiveSpace = Space | [Space, Space];
-export interface UseStackProps {
-  component: UseBoxProps['component'];
+export interface UseStackItemProps {
+  component: UseBoxStylesProps['component'];
   space: ResponsiveSpace | undefined;
 }
 
-export const useStackItem = ({ component, space }: UseStackProps) => {
+export const useStackItem = ({ component, space }: UseStackItemProps) => {
   const styles = useStyles(styleRefs);
 
   return classnames(
-    useBox({ component, paddingBottom: space }),
+    useBoxStyles({ component, paddingBottom: space }),
     styles.excludingLast,
   );
 };

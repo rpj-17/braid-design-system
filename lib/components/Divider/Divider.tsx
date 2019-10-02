@@ -2,7 +2,7 @@ import React from 'react';
 import { useStyles } from 'sku/react-treat';
 import { Box } from '../Box/Box';
 import * as styleRefs from './Divider.treat';
-import { Space } from '../../hooks/useBox';
+import { Space } from '../Box/useBoxStyles';
 
 type ResponsiveSpace = Space | [Space, Space];
 interface DividerProps {

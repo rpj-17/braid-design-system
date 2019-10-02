@@ -4,7 +4,7 @@ import { Box } from '../Box/Box';
 import { Stack, StackProps } from './Stack';
 import { HideCode } from '../private/HideCode';
 import { Heading } from '../Heading/Heading';
-import { padding } from '../../hooks/useBox/box.treat';
+import { padding } from '../Box/useBoxStyles.treat';
 
 const spaces = Object.keys(padding.top).filter(
   space => space !== 'none',

@@ -28,6 +28,11 @@ const spaceMapToCss = (
   );
 };
 
+const spaceMapToDesktopCss = (
+  theme: Theme,
+  cssPropertyName: keyof Properties,
+) => spaceMapToCss(theme, cssPropertyName, true);
+
 export const margin = {
   top: styleMap(theme => spaceMapToCss(theme, 'marginTop')),
   bottom: styleMap(theme => spaceMapToCss(theme, 'marginBottom')),
@@ -36,10 +41,10 @@ export const margin = {
 };
 
 export const marginDesktop = {
-  top: styleMap(theme => spaceMapToCss(theme, 'marginTop', true)),
-  bottom: styleMap(theme => spaceMapToCss(theme, 'marginBottom', true)),
-  left: styleMap(theme => spaceMapToCss(theme, 'marginLeft', true)),
-  right: styleMap(theme => spaceMapToCss(theme, 'marginRight', true)),
+  top: styleMap(theme => spaceMapToDesktopCss(theme, 'marginTop')),
+  bottom: styleMap(theme => spaceMapToDesktopCss(theme, 'marginBottom')),
+  left: styleMap(theme => spaceMapToDesktopCss(theme, 'marginLeft')),
+  right: styleMap(theme => spaceMapToDesktopCss(theme, 'marginRight')),
 };
 
 export const padding = {
@@ -50,10 +55,10 @@ export const padding = {
 };
 
 export const paddingDesktop = {
-  top: styleMap(theme => spaceMapToCss(theme, 'paddingTop', true)),
-  bottom: styleMap(theme => spaceMapToCss(theme, 'paddingBottom', true)),
-  left: styleMap(theme => spaceMapToCss(theme, 'paddingLeft', true)),
-  right: styleMap(theme => spaceMapToCss(theme, 'paddingRight', true)),
+  top: styleMap(theme => spaceMapToDesktopCss(theme, 'paddingTop')),
+  bottom: styleMap(theme => spaceMapToDesktopCss(theme, 'paddingBottom')),
+  left: styleMap(theme => spaceMapToDesktopCss(theme, 'paddingLeft')),
+  right: styleMap(theme => spaceMapToDesktopCss(theme, 'paddingRight')),
 };
 
 export const transform = {
@@ -87,7 +92,7 @@ export const width = {
   ...styleMap(mapToStyleProperty(widthRules, 'width'), 'width'),
   ...styleMap(
     theme => ({
-      touchable: { width: theme.grid * theme.touchableSpace },
+      touchable: { width: theme.grid * theme.touchableSize },
     }),
     'width',
   ),
@@ -100,7 +105,7 @@ export const height = {
   ...styleMap(mapToStyleProperty(heightRules, 'height'), 'height'),
   ...styleMap(
     theme => ({
-      touchable: { height: theme.grid * theme.touchableSpace },
+      touchable: { height: theme.grid * theme.touchableSize },
     }),
     'height',
   ),

@@ -139,8 +139,12 @@ export default ({
       },
     },
     responsiveBreakpoint: 768,
+    contentWidth: {
+      medium: 940,
+      large: 1280,
+    },
     grid: 4,
-    touchableSpace: 10,
+    touchableSize: 10,
     space: {
       gutter: 5,
       xxsmall: 1,

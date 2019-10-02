@@ -6,7 +6,7 @@ import TextContext from '../Text/TextContext';
 import HeadingContext from '../Heading/HeadingContext';
 import ActionsContext from '../Actions/ActionsContext';
 import { FieldOverlay } from '../private/FieldOverlay/FieldOverlay';
-import useBox from '../../hooks/useBox';
+import { useBoxStyles } from '../Box/useBoxStyles';
 import { Box } from '../Box/Box';
 import {
   useTextTone,
@@ -15,6 +15,7 @@ import {
   useText,
 } from '../../hooks/typography';
 import * as styleRefs from './TextLinkRenderer.treat';
+import { useBackground } from '../Box/BackgroundContext';
 
 interface StyleProps {
   style: CSSProperties;
@@ -44,11 +45,16 @@ export const TextLinkRenderer = (props: TextLinkRendererProps) => {
 function useLinkStyles() {
   const styles = useStyles(styleRefs);
   const inHeading = useContext(HeadingContext);
+  const backgroundContext = useBackground();
   const mediumWeight = useWeight('medium');
 
+  const highlightLink = backgroundContext === 'card' || !backgroundContext;
+
   return [
-    styles.root,
-    useTextTone({ tone: 'link' }),
+    highlightLink ? styles.underlineOnHoverOnly : styles.underlineAlways,
+    useTextTone({
+      tone: highlightLink ? 'link' : undefined,
+    }),
     !inHeading ? mediumWeight : null,
   ];
 }
@@ -60,7 +66,7 @@ function InlineLink({ children }: TextLinkRendererProps) {
         style: {},
         className: classnames(
           useLinkStyles(),
-          useBox({
+          useBoxStyles({
             component: 'a',
             cursor: 'pointer',
           }),
@@ -78,7 +84,7 @@ function TouchableLink({ children }: TextLinkRendererProps) {
           style: {},
           className: classnames(
             useLinkStyles(),
-            useBox({
+            useBoxStyles({
               component: 'a',
               cursor: 'pointer',
               display: 'block',
@@ -108,7 +114,7 @@ function ButtonLink({ children }: TextLinkRendererProps) {
             useLinkStyles(),
             useText(buttonLinkTextProps),
             useTouchableSpace(buttonLinkTextProps.size),
-            useBox({
+            useBoxStyles({
               component: 'a',
               cursor: 'pointer',
               display: 'block',

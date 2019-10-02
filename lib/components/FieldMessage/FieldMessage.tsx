@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { useStyles } from 'sku/react-treat';
+import classnames from 'classnames';
 import { Box } from '../Box/Box';
 import { Text } from '../Text/Text';
 import { IconCritical, IconPositive } from '../icons';
@@ -41,18 +42,20 @@ export const FieldMessage = ({
   const showMessage = !disabled && message;
 
   return (
-    <Box id={id} display="flex" justifyContent="flexEnd">
-      <Box className={styles.grow}>
-        <Text size="small" tone={tone === 'neutral' ? 'secondary' : tone}>
-          <Box display="flex">
-            {showMessage && tone !== 'neutral' ? (
-              <Box paddingRight="xxsmall" className={styles.fixedSize}>
-                {Icon[tone]}
-              </Box>
-            ) : null}
-            {showMessage ? message : '\u00A0'}
-          </Box>
-        </Text>
+    <Box id={id} paddingBottom="xsmall" display="flex" justifyContent="flexEnd">
+      <Box className={classnames(styles.grow, styles.minHeight)}>
+        {showMessage ? (
+          <Text size="small" tone={tone === 'neutral' ? 'secondary' : tone}>
+            <Box display="flex">
+              {tone !== 'neutral' ? (
+                <Box paddingRight="xxsmall" className={styles.fixedSize}>
+                  {Icon[tone]}
+                </Box>
+              ) : null}
+              {message}
+            </Box>
+          </Text>
+        ) : null}
       </Box>
       {secondaryMessage && !disabled ? (
         <Box paddingLeft="xsmall" className={styles.fixedSize}>
